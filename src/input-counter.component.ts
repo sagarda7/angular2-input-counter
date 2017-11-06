@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, forwardRef, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
 
 
@@ -19,7 +19,7 @@ export function createCounterRangeValidator(maxValue, minValue) {
 @Component({
   selector: 'input-counter',
   template: `
-    <div class="wrapper"><button class="left" [class]="btnClass" (click)="increase()">+</button> <input type="text" [class]="inputClass" [value]="counterValue"> <button class="right" [class]="btnClass" (click)="decrease()">-</button></div>
+    <div class="wrapper"><button class="left" [class]="btnClass" (click)="increase()">+</button> <input type="text" [class]="inputClass" [value]="counterValue" (change)="onInputChange()"> <button class="right" [class]="btnClass" (click)="decrease()">-</button></div>
   `,
   styles:[
     'div.wrapper {display:inline-block}',
@@ -42,6 +42,7 @@ export class InputCounterComponent implements ControlValueAccessor, OnChanges {
   @Input() counterRangeMin;
   @Input() btnClass;
   @Input() inputClass;
+  @Output() onCounterChange = new EventEmitter();
 
 
   get counterValue() {
@@ -82,5 +83,9 @@ export class InputCounterComponent implements ControlValueAccessor, OnChanges {
 
   validate(c: FormControl) {
     return this.validateFn(c);
+  }
+
+  onInputChange(){
+    this.onCounterChange.emit(this.counterValue);
   }
 }
