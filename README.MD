@@ -1,5 +1,5 @@
 # angular2-input-counter
-This labrary adds two incremental buttons + and - for input to make like counter. eg. you can use this in shopping cart to show quantity
+This library adds two incremental buttons + and - for input to make like counter. eg. you can use this in shopping cart to show quantity
 
 #Preview
 ![alt preview](https://github.com/sagarda7/angular2-input-counter/blob/master/sample.png)
