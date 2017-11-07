@@ -10,9 +10,13 @@ import { InputCounterModule }  from 'angular2-input-counter';
 
 @Component({
   selector: 'app',
-  template: `<input-counter btnClass="btn btn-primary" inputClass="form-control-inline"></input-counter>`
+  template: `<input-counter btnClass="btn btn-primary" inputClass="form-control-inline" (onCounterChange)="counterChanged($event)"></input-counter>`
 })
-class AppComponent {}
+class AppComponent {
+  counterChanged(value){
+    console.log(value);
+  }
+}
 
 @NgModule({
   bootstrap: [ AppComponent ],

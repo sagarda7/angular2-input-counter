@@ -8,7 +8,8 @@ export * from './input-counter.component';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, 
+    ReactiveFormsModule
   ],
   declarations: [
     InputCounterComponent
@@ -17,6 +18,7 @@ export * from './input-counter.component';
     InputCounterComponent
   ]
 })
+
 export class InputCounterModule {
   static forRoot(): ModuleWithProviders {
     return {

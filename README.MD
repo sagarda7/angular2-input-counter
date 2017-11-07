@@ -30,17 +30,20 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import your library
-import { InputCounterModule } from 'angular2-input-counter';
+import { InputCounterComponent } from 'angular2-input-counter';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
+    // Specify your library as a declaration
+    InputCounterComponent
   ],
   imports: [
     BrowserModule,
 
     // Specify your library as an import
-    InputCounterModule.forRoot()
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -55,7 +58,7 @@ Once your library is imported, you can use its components, directives and pipes 
 <h1>
   {{title}}
 </h1>
-<input-counter btnClass="customClass" inputClass="customClass"></input-counter>
+<input-counter btnClass="customClass" inputClass="customClass"  (onCounterChange)="customEvent()"></input-counter>
 ```
 
 ## Development
